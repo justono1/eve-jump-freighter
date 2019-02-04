@@ -1,15 +1,5 @@
 <h1>Planned Jump Runs</h1>
-<section *ngIf="selectedRun">
-  <div class="inner-container">
-    <h2>{{selectedRun.name}}</h2>
-    <div>id: {{selectedRun.id}}</div>
-    <div>
-      <label for="">name:
-        <input [(ngModel)]="selectedRun.name" placeholder="name">
-      </label>
-    </div>
-  </div>
-</section>
+<app-run-detail [run]="selectedRun" ></app-run-detail>
 <section>
   <div class="inner-container">
     <div>

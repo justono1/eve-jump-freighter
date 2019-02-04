@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { JumpRun } from "../libs/common";
 
 @Component({
   selector: 'app-run-detail',
@@ -6,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./run-detail.component.scss']
 })
 export class RunDetailComponent implements OnInit {
+  @Input() run: JumpRun;
 
   constructor() { }
 

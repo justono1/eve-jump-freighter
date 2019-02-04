@@ -1,3 +1,11 @@
-<p>
-  run-detail works!
-</p>
+<section *ngIf="run">
+  <div class="inner-container">
+    <h2>{{run.name}}</h2>
+    <div>id: {{run.id}}</div>
+    <div>
+      <label for="">name:
+        <input [(ngModel)]="run.name" placeholder="name">
+      </label>
+    </div>
+  </div>
+</section>

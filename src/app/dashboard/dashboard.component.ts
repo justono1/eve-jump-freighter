@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { JumpRun } from '../libs/common';
-import { JUMP_RUNS } from '../mock-jump-runs';
+import { JumpRunService } from "../jump-run.service";
 
 @Component({
   selector: 'app-dashboard',
@@ -9,11 +9,19 @@ import { JUMP_RUNS } from '../mock-jump-runs';
 })
 export class DashboardComponent implements OnInit {
   selectedRun: JumpRun;
-  runs = JUMP_RUNS;
+  runs: JumpRun[];
 
-  constructor() { }
+  constructor(
+    private jumpRunsService: JumpRunService
+  ) { }
 
   ngOnInit() {
+    this.getJumpRuns();
+  }
+
+  getJumpRuns(): void {
+    this.jumpRunsService.getJumpRuns()
+      .subscribe(jumpRuns => this.runs = jumpRuns);
   }
 
   onSelect(run: JumpRun): void {
