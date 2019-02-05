@@ -1,13 +1,19 @@
-<h1>Planned Jump Runs</h1>
-<section>
-  <div class="inner-container">
-    <div>
-      <a *ngFor="let run of runs" class="card" [class.selected]="run === selectedRun" routerLink="/jump-run/{{run.id}}">
-        <span class="date">{{run.date}}</span>
-        <div class="content">
-          <h3>{{run.name}}</h3>
-        </div>
-      </a>
-    </div>
-  </div>
-</section>
+<main class="dashboard">
+  <section class="main">
+    <a>+</a>
+    <a *ngFor="let run of runs" class="card" [class.selected]="run === selectedRun" routerLink="/jump-run/{{run.id}}">
+      <span class="date">{{run.date | date:'MMM dd'}}</span>
+    </a>
+  </section>
+  <section class="sidebar">
+    <h1>Total Profit</h1>
+    <p>$$$,$$$</p>
+    <hr>
+    <ul>
+      <li><strong>Feb</strong>: $$$</li>
+      <li><strong>Jan</strong>: $$$</li>
+      <li><strong>Dec</strong>: $$$</li>
+    </ul>
+  </section>
+</main>
+

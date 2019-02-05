@@ -1,1 +1,50 @@
 /* You can add global styles to this file, and also import other style files */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html,
+body,
+main,
+section {
+  height: 100%;
+}
+main {
+  display: flex;
+  align-items: stretch;
+}
+main section {
+  padding: 25px;
+  border-right: 1px solid #000;
+}
+main section:last-child {
+  border: none;
+}
+.main {
+  width: 70%;
+}
+.sidebar {
+  width: 30%;
+}
+
+main.dashboard .main {
+  display: flex;
+  flex-wrap: wrap;
+}
+main.dashboard .main a {
+  width: 100px;
+  height: 100px;
+  border: 1px solid #000;
+  margin: 25px;
+  transition: .3s linear;
+  color: #000;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+main.dashboard .main a:hover {
+  background: #000;
+  color: #fff;
+}

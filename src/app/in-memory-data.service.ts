@@ -11,7 +11,6 @@ export class InMemoryDataService implements InMemoryDbService {
     const jumpRuns = [
       {
         id: 1,
-        name: "Jan 25",
         date: new Date('January 25, 2019'),
         orders: [
           {
@@ -42,7 +41,6 @@ export class InMemoryDataService implements InMemoryDbService {
       },
       {
         id: 2,
-        name: "Jan 31",
         date: new Date('January 31, 2019'),
         orders: [
           {
@@ -61,7 +59,6 @@ export class InMemoryDataService implements InMemoryDbService {
       },
       {
         id: 3,
-        name: "Feb 2",
         date: new Date('February 2, 2019'),
         orders: [
           {
@@ -74,7 +71,6 @@ export class InMemoryDataService implements InMemoryDbService {
       },
       {
         id: 4,
-        name: "Feb 4",
         date: new Date('February 4, 2019'),
       }
     ]

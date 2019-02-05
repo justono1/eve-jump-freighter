@@ -1,13 +1,9 @@
 <button (click)="goBack()">go back</button>
 <section *ngIf="run">
   <div class="inner-container">
-    <h2>{{run.name}}</h2>
+    <h2>{{run.date | date:'MMM dd'}}</h2>
     <div>id: {{run.id}}</div>
-    <div>
-      <label for="">name:
-        <input [(ngModel)]="run.name" placeholder="name">
-      </label>
-    </div>
   </div>
 </section>
 <button (click)="save()">save</button>
+
