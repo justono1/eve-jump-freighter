@@ -1,14 +1,13 @@
 <h1>Planned Jump Runs</h1>
-<app-run-detail [run]="selectedRun" ></app-run-detail>
 <section>
   <div class="inner-container">
     <div>
-      <div *ngFor="let run of runs" (click)="onSelect(run)" class="card" [class.selected]="run === selectedRun">
+      <a *ngFor="let run of runs" class="card" [class.selected]="run === selectedRun" routerLink="/jump-run/{{run.id}}">
         <span class="date">{{run.date}}</span>
         <div class="content">
           <h3>{{run.name}}</h3>
         </div>
-      </div>
+      </a>
     </div>
   </div>
 </section>

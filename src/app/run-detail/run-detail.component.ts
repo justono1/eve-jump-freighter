@@ -1,4 +1,9 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from "@angular/router";
+import { Location } from "@angular/common";
+
+import { JumpRunService } from "../jump-run.service";
+
 import { JumpRun } from "../libs/common";
 
 @Component({
@@ -7,11 +12,31 @@ import { JumpRun } from "../libs/common";
   styleUrls: ['./run-detail.component.scss']
 })
 export class RunDetailComponent implements OnInit {
-  @Input() run: JumpRun;
+  run: JumpRun;
 
-  constructor() { }
+  constructor(
+    private route: ActivatedRoute,
+    private jumpRunService: JumpRunService,
+    private location: Location
+  ) { }
 
-  ngOnInit() {
+  ngOnInit():void {
+    this.getJumpRun();
+  }
+
+  getJumpRun(): void {
+    const id = +this.route.snapshot.paramMap.get('id');
+    this.jumpRunService.getJumpRun(id)
+      .subscribe(jumpRun => this.run = jumpRun);
+  }
+
+  goBack(): void {
+    this.location.back();
+  }
+
+  save(): void {
+    this.jumpRunService.updateJumpRun(this.run)
+      .subscribe(() => this.goBack());
   }
 
 }

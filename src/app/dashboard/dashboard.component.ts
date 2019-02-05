@@ -24,8 +24,4 @@ export class DashboardComponent implements OnInit {
       .subscribe(jumpRuns => this.runs = jumpRuns);
   }
 
-  onSelect(run: JumpRun): void {
-    this.selectedRun = run;
-  }
-
 }
