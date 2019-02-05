@@ -1,9 +1,49 @@
-<button (click)="goBack()">go back</button>
-<section *ngIf="run">
-  <div class="inner-container">
-    <h2>{{run.date | date:'MMM dd'}}</h2>
-    <div>id: {{run.id}}</div>
-  </div>
-</section>
-<button (click)="save()">save</button>
-
+<main class="run-detail">
+  <section class="main">
+    <button (click)="goBack()" class="back">Close</button>
+    <div class="order-info">
+      <table>
+          <thead>
+            <tr>
+              <th><input type="checkbox"></th>
+              <th>Item Name</th>
+              <th>Buy</th>
+              <th>Sell</th>
+              <th>Qty</th>
+              <th>Profit Margin</th>
+              <th>Profit</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let order of run.orders">
+              <td><input type="checkbox"></td>
+              <td><input [(ngModel)]="order.name" placeholder="Item Name"></td>
+              <td>$<input [(ngModel)]="order.buyPrice" placeholder="Buy Price"></td>
+              <td>$<input [(ngModel)]="order.sellPrice" placeholder="Sell Price"></td>
+              <td><input [(ngModel)]="order.quantity"></td>
+              <td>{{(((order.sellPrice - order.buyPrice) * order.quantity)/(order.buyPrice * order.quantity)) * 100 | round}}%</td>
+              <td>{{(order.sellPrice - order.buyPrice) * order.quantity | currency}}</td>
+            </tr>
+            <tr>
+                <td>+</td>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+            </tr>
+          </tbody>
+        </table>
+    </div>
+    <button (click)="save()" class="save">save</button>
+  </section>
+  <section class="sidebar">
+    <h1>{{run.date | date:'MMM dd'}}</h1>
+    <p><strong>Investment</strong>: {{investment | currency}}</p>
+    <p><strong>Fuel Cost</strong>: {{run.fuelCost | currency}}</p>
+    <p><strong>Profit</strong>: {{profit | currency}}</p>
+  </section>
+</main>
+  
+  

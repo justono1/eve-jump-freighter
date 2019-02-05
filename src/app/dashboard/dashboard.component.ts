@@ -24,4 +24,13 @@ export class DashboardComponent implements OnInit {
       .subscribe(jumpRuns => this.runs = jumpRuns);
   }
 
+  add():void {
+    this.jumpRunsService.addJumpRun({
+      date: new Date()
+    } as JumpRun)
+      .subscribe(run => {
+        this.runs.push(run);
+      })
+  }
+
 }

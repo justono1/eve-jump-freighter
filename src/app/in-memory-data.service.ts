@@ -33,7 +33,7 @@ export class InMemoryDataService implements InMemoryDbService {
           },
           {
             name: "Oxygen Isotopes",
-            buyPrice: 1200,
+            buyPrice: 800,
             sellPrice: 1000,
             quantity: 2000
           }
@@ -72,6 +72,14 @@ export class InMemoryDataService implements InMemoryDbService {
       {
         id: 4,
         date: new Date('February 4, 2019'),
+        orders: [
+          {
+            name: "Expanded Cargo Hold T2",
+            buyPrice: 400000,
+            sellPrice: 1000000,
+            quantity: 100
+          }
+        ]
       }
     ]
     return {jumpRuns};

@@ -1,6 +1,6 @@
 <main class="dashboard">
   <section class="main">
-    <a>+</a>
+    <button (click)="add()">+</button>
     <a *ngFor="let run of runs" class="card" [class.selected]="run === selectedRun" routerLink="/jump-run/{{run.id}}">
       <span class="date">{{run.date | date:'MMM dd'}}</span>
     </a>

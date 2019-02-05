@@ -48,6 +48,14 @@ export class JumpRunService {
       )
   }
 
+  addJumpRun(run: JumpRun): Observable<JumpRun> {
+    return this.http.post<JumpRun>(this.jumpRunUrl, run, httpOptions)
+      .pipe(
+        tap((newJumpRun: JumpRun) => this.log(`added Jump Run w/ id=${newJumpRun.id}`)),
+        catchError(this.handleError<JumpRun>('addJumpRun'))
+      )
+  }
+
 
   private log(message: string) {
     this.messageService.add(`JumpRunsService: ${message}`);
