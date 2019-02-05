@@ -1,9 +1,11 @@
 <main class="dashboard">
   <section class="main">
     <button (click)="add()">+</button>
-    <a *ngFor="let run of runs" class="card" [class.selected]="run === selectedRun" routerLink="/jump-run/{{run.id}}">
+    <div *ngFor="let run of runs" class="card" [class.selected]="run === selectedRun">
       <span class="date">{{run.date | date:'MMM dd'}}</span>
-    </a>
+      <a routerLink="/jump-run/{{run.id}}">Edit</a> | 
+      <button (click)="delete(run)">Delete</button>
+    </div>
   </section>
   <section class="sidebar">
     <h1>Total Profit</h1>

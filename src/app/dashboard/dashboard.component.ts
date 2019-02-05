@@ -33,4 +33,9 @@ export class DashboardComponent implements OnInit {
       })
   }
 
+  delete(run: JumpRun): void {
+    this.runs = this.runs.filter(r => r !== run);
+    this.jumpRunsService.deleteJumpRun(run).subscribe();
+  }
+
 }

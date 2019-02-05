@@ -56,6 +56,16 @@ export class JumpRunService {
       )
   }
 
+  deleteJumpRun(run: JumpRun | number): Observable<JumpRun> {
+    const id = typeof run === 'number' ? run : run.id;
+    const url = `${this.jumpRunUrl}/${id}`;
+
+    return this.http.delete<JumpRun>(url, httpOptions).pipe(
+      tap(_ => this.log(`deleted Jump Run id=${id}`)),
+      catchError(this.handleError<JumpRun>('deleteJumpRun'))
+    );
+  }
+
 
   private log(message: string) {
     this.messageService.add(`JumpRunsService: ${message}`);

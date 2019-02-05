@@ -33,9 +33,8 @@ main.dashboard .main {
   display: flex;
   flex-wrap: wrap;
 }
-main.dashboard .main a,
-main.dashboard .main button {
-  cursor: pointer;
+main.dashboard .main .date,
+main.dashboard .main > button {
   width: 100px;
   height: 100px;
   border: 1px solid #000;
@@ -43,10 +42,22 @@ main.dashboard .main button {
   transition: .3s linear;
   color: #000;
   text-decoration: none;
-  display: flex;
+  display: block;
+  text-align: center;
+  /* display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: center; */
 }
+main.dashboard .main button {
+  cursor: pointer;
+}
+main.dashboard .main .card {
+  margin: 25px;
+}
+main.dashboard .main .date {
+  margin: 0;
+}
+
 main.dashboard .main a:hover,
 main.dashboard .main button:hover {
   background: #000;
