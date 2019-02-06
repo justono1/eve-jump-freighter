@@ -66,10 +66,10 @@ export class JumpRunService {
     );
   }
 
-
   private log(message: string) {
     this.messageService.add(`JumpRunsService: ${message}`);
   }
+
   private handleError<T> (operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
       console.error(error);

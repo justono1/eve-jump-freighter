@@ -126,4 +126,5 @@ table tr th:last-child {
 }
 button {
   border: none;
+  cursor: pointer;
 }

@@ -16,32 +16,35 @@
           </thead>
           <tbody>
             <tr *ngFor="let order of run.orders">
-              <td><input type="checkbox"></td>
-              <td><input [(ngModel)]="order.name" placeholder="Item Name"></td>
-              <td>$<input [(ngModel)]="order.buyPrice" placeholder="Buy Price"></td>
-              <td>$<input [(ngModel)]="order.sellPrice" placeholder="Sell Price"></td>
-              <td><input [(ngModel)]="order.quantity"></td>
+              <td><input type="checkbox" (change)="multiSelect(order)"></td>
+              <td><input [(ngModel)]="order.name" placeholder="Item Name" (input)="updatePrice(run)"></td>
+              <td>$<input [(ngModel)]="order.buyPrice" placeholder="Buy Price" (input)="updatePrice(run)"></td>
+              <td>$<input [(ngModel)]="order.sellPrice" placeholder="Sell Price" (input)="updatePrice(run)"></td>
+              <td><input [(ngModel)]="order.quantity" (input)="updatePrice(run)"></td>
               <td>{{(((order.sellPrice - order.buyPrice) * order.quantity)/(order.buyPrice * order.quantity)) * 100 | round}}%</td>
               <td>{{(order.sellPrice - order.buyPrice) * order.quantity | currency}}</td>
             </tr>
             <tr>
-                <td>+</td>
-                <td><input type="text"></td>
-                <td><input type="text"></td>
-                <td><input type="text"></td>
-                <td><input type="text"></td>
+                <td (click)="addOrder()">+</td>
+                <td><input #name [(ngModel)]="newOrder.name" required /></td>
+                <td><input [(ngModel)]="newOrder.buyPrice" required /></td>
+                <td><input [(ngModel)]="newOrder.sellPrice" required /></td>
+                <td><input [(ngModel)]="newOrder.quantity" required (keydown.enter)="addOrder()" /></td>
                 <td>&nbsp;</td>
                 <td>&nbsp;</td>
             </tr>
           </tbody>
         </table>
+        <div *ngIf="selectedOrders.length > 0">
+          <button (click)="deleteSelected()">Delete Selected</button>
+        </div>
     </div>
     <button (click)="save()" class="save">save</button>
   </section>
   <section class="sidebar">
     <h1>{{run.date | date:'MMM dd'}}</h1>
     <p><strong>Investment</strong>: {{investment | currency}}</p>
-    <p><strong>Fuel Cost</strong>: {{run.fuelCost | currency}}</p>
+    <p><strong>Fuel Cost</strong>: <input [(ngModel)]="run.fuelCost" (input)="updatePrice(run)"></p>
     <p><strong>Profit</strong>: {{profit | currency}}</p>
   </section>
 </main>
