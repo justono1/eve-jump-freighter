@@ -1,7 +1,7 @@
 <main class="dashboard">
   <section class="main">
     <button (click)="add()">+</button>
-    <div *ngFor="let run of runs" class="card" [class.selected]="run === selectedRun">
+    <div *ngFor="let run of runs | async" class="card" [class.selected]="run === selectedRun">
       <span class="date">{{run.date | date:'MMM dd'}}</span>
       <a routerLink="/jump-run/{{run.id}}">Edit</a> | 
       <button (click)="delete(run)">Delete</button>

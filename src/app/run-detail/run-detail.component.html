@@ -25,13 +25,13 @@
               <td>{{(order.sellPrice - order.buyPrice) * order.quantity | currency}}</td>
             </tr>
             <tr>
-                <td (click)="addOrder()">+</td>
-                <td><input #name [(ngModel)]="newOrder.name" required /></td>
-                <td><input [(ngModel)]="newOrder.buyPrice" required /></td>
-                <td><input [(ngModel)]="newOrder.sellPrice" required /></td>
-                <td><input [(ngModel)]="newOrder.quantity" required (keydown.enter)="addOrder()" /></td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
+              <td (click)="addOrder()">+</td>
+              <td><input #name [(ngModel)]="newOrder.name" required /></td>
+              <td><input [(ngModel)]="newOrder.buyPrice" required /></td>
+              <td><input [(ngModel)]="newOrder.sellPrice" required /></td>
+              <td><input [(ngModel)]="newOrder.quantity" required (keydown.enter)="addOrder()" /></td>
+              <td>&nbsp;</td>
+              <td>&nbsp;</td>
             </tr>
           </tbody>
         </table>

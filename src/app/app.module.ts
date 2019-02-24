@@ -12,6 +12,9 @@ import { RunDetailComponent } from './run-detail/run-detail.component';
 import { MessagesComponent } from './messages/messages.component';
 import { AppRoutingModule } from './app-routing/app-routing.module';
 
+import { StoreModule } from "@ngrx/store";
+import { jumpRunReducer } from "./reducers/jump-run.reducer";
+
 @Pipe({name: 'round'})
 export class RoundPipe implements PipeTransform {
   transform(value: number): number {
@@ -29,6 +32,9 @@ export class RoundPipe implements PipeTransform {
   ],
   imports: [
     BrowserModule,
+    StoreModule.forRoot({
+      jumpRuns: jumpRunReducer
+    }),
     FormsModule,
     AppRoutingModule,
     HttpClientModule,
